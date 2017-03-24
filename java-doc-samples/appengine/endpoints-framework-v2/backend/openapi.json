@@ -1,0 +1,132 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "version": "1.0.0",
+  "title": "echo-api.endpoints.anotherone-161115.cloud.goog"
+ },
+ "host": "echo-api.endpoints.anotherone-161115.cloud.goog",
+ "basePath": "/_ah/api",
+ "schemes": [
+  "https"
+ ],
+ "consumes": [
+  "application/json"
+ ],
+ "produces": [
+  "application/json"
+ ],
+ "paths": {
+  "/dimayor123/v1/consultarEquipo/{nombreEquipo}": {
+   "post": {
+    "operationId": "Dimayor123ConsultarEquipoPorNombre",
+    "parameters": [
+     {
+      "name": "nombreEquipo",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Equipos"
+      }
+     }
+    }
+   }
+  },
+  "/dimayor123/v1/equiposcollection": {
+   "get": {
+    "operationId": "Dimayor123GetListaEquipos",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/EquiposCollection"
+      }
+     }
+    }
+   }
+  },
+  "/dimayor123/v1/getNombreEquipo/{nombreEquipo}": {
+   "get": {
+    "operationId": "Dimayor123GetEquipoPorNombre",
+    "parameters": [
+     {
+      "name": "nombreEquipo",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Equipos"
+      }
+     }
+    }
+   }
+  },
+  "/dimayor123/v1/setAnioFundacion/{nombreEquipo}": {
+   "post": {
+    "operationId": "Dimayor123CambiarAnioFundacion",
+    "parameters": [
+     {
+      "name": "nombreEquipo",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "name": "anioFundacion",
+      "in": "query",
+      "required": true,
+      "type": "integer",
+      "format": "int32"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "Equipos": {
+   "properties": {
+    "anioFundacion": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "equipoId": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "nombreEquipo": {
+     "type": "string"
+    },
+    "titulosGanados": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "EquiposCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Equipos"
+     }
+    }
+   }
+  }
+ }
+}
